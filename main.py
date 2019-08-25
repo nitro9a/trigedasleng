@@ -17,10 +17,11 @@ from kivy.uix.recycleview import RecycleView
 from kivy.uix.recycleboxlayout import RecycleBoxLayout
 from kivy.uix.recycleview.views import RecycleDataViewBehavior
 from kivy.uix.recycleview.layout import LayoutSelectionBehavior
-from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
 from kivy.uix.recycleview.views import _cached_views, _view_base_cache
+from kivy.uix.scatter import Scatter
+from kivy.uix.scatterlayout import ScatterLayout
+from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
 from kivy.properties import ObjectProperty, ListProperty, StringProperty, BooleanProperty
-
 from kivy.loader import Loader
 
 Loader.loading_image = 'images/trikru_flag.png'
@@ -462,7 +463,7 @@ class Favorites(Screen):
         popup = MessageBoxFavoritesConfirmation()
         popup.open()
 
-class Test(Screen):
+class Pronunciation(Screen):
     pass
 
 kv = Builder.load_file("layout.kv")

@@ -12,6 +12,7 @@ Builder.load_string('''
     color: 0,0,0,1
     fsize: 100
     Label:
+        font_name: 'fonts/Roboto_Mono/RobotoMono-Regular.ttf'
         size_hint_y: None
         height: self.texture_size[1]
         text_size: self.width, None

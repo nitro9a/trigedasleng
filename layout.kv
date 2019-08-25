@@ -8,6 +8,7 @@
 #: set grey (96/255, 96/255, 96/255, 1)
 
 <ScaleButton>:
+    font_name: 'fonts/Roboto_Mono/RobotoMono-Regular.ttf'
     size_hint: .2, .05
     color: black
     background_normal: ''
@@ -18,6 +19,7 @@
     keep_ratio: True
 
 <ScaleLabel>:
+    font_name: 'fonts/Roboto_Mono/RobotoMono-Regular.ttf'
     size_hint: .5, .5
     pos_hint: {'top': .85, 'center_x': .5}
     color: black
@@ -27,11 +29,13 @@
     keep_ratio: True
 
 <ScrollableLabel>:
+    font_name: 'fonts/Roboto_Mono/RobotoMono-Regular.ttf'
     bcolor: black
     color: white
     fsize: 75
 
 <RV>:
+    font_name: 'fonts/Roboto_Mono/RobotoMono-Regular.ttf'
     viewclass: 'SelectableButton'
     RecycleBoxLayout:
         padding: "15dp", "5dp", "15dp", "15dp"
@@ -46,7 +50,7 @@
 	disabled_image: self.background_disabled_normal if self.state == 'normal' else self.background_disabled_down
 	_scale: 1 if self.texture_size[0] < self.width else float(self.width - 10) / (self.texture_size[0] + .001)
 	orientation: 'horizontal'
-
+    font_name: 'fonts/Roboto_Mono/RobotoMono-Regular.ttf'
     # Draw a background to indicate selection
     canvas.before:
         Color:
@@ -70,6 +74,7 @@
         PopMatrix
 
 <SelectableButton>:
+    font_name: 'fonts/Roboto_Mono/RobotoMono-Regular.ttf'
     background_color: grey
     background_down: 'images/black.png'
 
@@ -446,6 +451,7 @@ WindowManager:
     UnreadWords:
     ReadWords:
     Favorites:
+    Pronunciation:
 
 <WordADay>:
     name: "word"
@@ -536,8 +542,8 @@ WindowManager:
             GridLayout:
                 orientation: 'horizontal'
                 cols: 1
-                rows: 1
-                spacing: 0
+                rows: 2
+                spacing: 10
                 size_hint_y: 10
 
                 ScaleButton:
@@ -550,6 +556,15 @@ WindowManager:
                     halign: 'center'
                     on_press: root.add_to_favorites()
                     on_release: app.root.get_screen('favorites').display_database()
+
+                ScaleButton:
+                    id: pro
+                    text: "Pronunciation Guide"
+                    color: black
+                    background_color: red
+                    valign: 'middle'
+                    halign: 'center'
+                    on_press: app.root.current = "pronunciation"
 <UnreadWords>:
     name: "unread"
     reset: reset
@@ -765,3 +780,32 @@ WindowManager:
                     root.confirmation_popup()
                 on_release:
                     root.display_database()
+
+<Pronunciation>:
+    name: "pronunciation"
+    GridLayout:
+        spacing: 10
+        padding: 10
+        rows: 2
+        columns: 1
+
+        GridLayout:
+            size_hint_y: 90
+            rows: 1
+            columns: 1
+            ScrollView:
+                Scatter:
+                    do_rotation: False
+                    Image:
+                        source: 'images/pronunciation.png'
+                        size: root.width / 1.1, root.height / 1.1
+
+        GridLayout:
+            size_hint_y: 10
+            rows: 1
+            columns: 1
+            ScaleButton:
+                text: "back"
+                on_press: app.root.current = "word"
+
+
