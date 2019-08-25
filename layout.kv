@@ -784,28 +784,24 @@ WindowManager:
 <Pronunciation>:
     name: "pronunciation"
     GridLayout:
-        spacing: 10
-        padding: 10
+        cols: 1
         rows: 2
-        columns: 1
-
-        GridLayout:
+        padding: 10
+        ScrollView:
             size_hint_y: 90
-            rows: 1
-            columns: 1
-            ScrollView:
-                Scatter:
-                    do_rotation: False
-                    Image:
-                        source: 'images/pronunciation.png'
-                        size: root.width / 1.1, root.height / 1.1
+            do_scroll_x: False
+            do_scroll_y: True
 
-        GridLayout:
+            Image:
+                size_hint_y: None
+                height: self.texture_size[1]
+                text_size: self.width, None
+                source: 'images/pronunciation.png'
+        ScaleButton:
             size_hint_y: 10
-            rows: 1
-            columns: 1
-            ScaleButton:
-                text: "back"
-                on_press: app.root.current = "word"
+            text: "Back"
+            on_press: app.root.current = "word"
+
+
 
 
