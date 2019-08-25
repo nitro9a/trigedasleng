@@ -787,16 +787,45 @@ WindowManager:
         cols: 1
         rows: 2
         padding: 10
-        ScrollView:
+        ScrollableLabel:
+            markup: True
             size_hint_y: 90
-            do_scroll_x: False
-            do_scroll_y: True
+            text:
+                '[color=#9B1900]Vowels[/color]\n\
+                A, a\t\t\t\t[color=#9B1900]a[/color]pple\n\
+                Ai, ai\t\t[color=#9B1900]i[/color]ce\n\
+                E, e\t\t\t\tg[color=#9B1900]e[/color]t\n\
+                Ei, ei\t\tf[color=#9B1900]a[/color]ce\n\
+                I, i\t\t\t\tm[color=#9B1900]ee[/color]t or k[color=#9B1900]i[/color]d\n\
+                O, o\t\t\t\tl[color=#9B1900]aw[/color] or s[color=#9B1900]o[/color]n\n\
+                Ou, ou\t\twr[color=#9B1900]o[/color]te\n\
+                U, u\t\t\t\tr[color=#9B1900]u[/color]de\n\
+                A, a\n\
+                (end of word)\t\t\tsof[color=#9B1900]a[/color]\n\
+                Au, au\t\tl[color=#9B1900]ou[/color]d\n\n\
+                [color=#9B1900]Consonants[/color]\n\
+                B, b\t\t\t\tball\n\
+                Ch, ch\t\tchair\n\
+                D, d\t\t\t\tdaft\n\
+                F, f\t\t\t\tfire\n\
+                G, g\t\t\t\tgood\n\
+                H, h\t\t\t\thello\n\
+                J, j\t\t\t\tjuice\n\
+                K, k\t\t\t\tkick\n\
+                L, l\t\t\t\tlime\n\
+                M, m\t\t\t\tmade\n\
+                N, n\t\t\t\tneed\n\
+                P, p\t\t\t\tpull\n\
+                R, r\t\t\t\tradio\n\
+                S, s\t\t\t\tseven\n\
+                Sh, sh\t\tshine\n\
+                T, t\t\t\t\ttalk\n\
+                Th, th\t\tthink\n\
+                V, v\t\t\t\tviking\n\
+                W, w\t\t\t\twater\n\
+                Y, y\t\t\t\tyellow\n\
+                Z, z\t\t\t\tzipper\n'
 
-            Image:
-                size_hint_y: None
-                height: self.texture_size[1]
-                text_size: self.width, None
-                source: 'images/pronunciation.png'
         ScaleButton:
             size_hint_y: 10
             text: "Back"
